@@ -1,0 +1,109 @@
+<!-- ===============  HOME PAGE  =============== -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VoiceifyNow — Text to Speech</title>
+  <meta name="description" content="VoiceifyNow turns typed text into natural speech, with translation and downloadable audio." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="nav-row">
+      <a href="index.html" class="wordmark">
+        <span class="bars"><span></span><span></span><span></span><span></span></span>
+        VoiceifyNow
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-controls">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark or light theme">🌙</button>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero wrap">
+      <span class="eyebrow">Text → Speech, instantly</span>
+      <h1>Give your words a voice.</h1>
+      <p class="lede">Type anything, choose a voice and language, and hear it read back naturally — right in your browser, no sign-up required.</p>
+
+      <div class="hero-waveform" id="heroWave">
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+
+      <div class="demo-card">
+        <div class="demo-row">
+          <div>
+            <label for="voices">Voice</label>
+            <select id="voices"></select>
+          </div>
+          <div>
+            <label for="language">Speak in</label>
+            <select id="language">
+              <option value="en" data-tts="en-US">English</option>
+              <option value="es" data-tts="es-ES">Spanish</option>
+              <option value="fr" data-tts="fr-FR">French</option>
+              <option value="de" data-tts="de-DE">German</option>
+              <option value="hi" data-tts="hi-IN">Hindi</option>
+              <option value="it" data-tts="it-IT">Italian</option>
+              <option value="ja" data-tts="ja-JP">Japanese</option>
+              <option value="pt" data-tts="pt-PT">Portuguese</option>
+            </select>
+          </div>
+        </div>
+
+        <label for="text">Your text</label>
+        <textarea id="text" placeholder="Type something to hear it spoken aloud…">Welcome to VoiceifyNow.</textarea>
+
+        <label class="check-row">
+          <input type="checkbox" id="autoTranslate" checked>
+          Translate from English into "Speak in" language
+        </label>
+
+        <div class="btn-row">
+          <button class="btn btn-primary" id="read">▶ Speak</button>
+          <button class="btn btn-secondary" id="downloadAudio">⬇ Download audio</button>
+          <button class="btn btn-ghost" id="stop">■ Stop</button>
+        </div>
+        <p class="status-note" id="statusNote">Typing in a different script (e.g. Hindi/Devanagari) is spoken as-is. English text is translated first if "Translate from English" is on.</p>
+      </div>
+    </section>
+
+    <section class="section wrap" id="phrases">
+      <div class="section-head">
+        <span class="eyebrow">Quick phrases</span>
+        <h2>One tap, instantly spoken</h2>
+        <p>Common phrases for fast, hands-free communication — useful for AAC, classrooms, or anyone who needs to speak quickly.</p>
+      </div>
+      <div class="phrase-grid" id="phraseGrid"></div>
+    </section>
+
+    <section class="section wrap" id="about-tts">
+      <div class="content-block">
+        <span class="eyebrow">How it works</span>
+        <h2>What is a Text-to-Speech system?</h2>
+        <p style="max-width:70ch">A Text-to-Speech (TTS) system converts written text into spoken audio. VoiceifyNow uses your browser's built-in speech engine for instant, natural-sounding playback, an open translation API so you can hear text in other languages, and an offline synthesis engine to generate a downloadable audio file when you need one.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2024–2026 VoiceifyNow. Built by Himanshu Singh, JSS Academy of Technical Education, Noida.</p>
+      <p><a href="contact.html">Get in touch</a></p>
+    </div>
+  </footer>
+
+  <!-- meSpeak.js: offline, client-side speech synthesis used only for generating a downloadable
+       audio file, since the browser's native Speech API cannot export audio (platform limitation). -->
+  <script src="https://cdn.jsdelivr.net/npm/mespeak@2.0.11/src/mespeak.full.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
